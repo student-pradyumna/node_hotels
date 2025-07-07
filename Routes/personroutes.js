@@ -1,22 +1,6 @@
 const express=require('express')
 const router=express.Router();
 const person = require('./../Models/person')
-const menuitem = require('./../Models/Menu')
-
-
-
-router.post('/Menuitem', async (req, res) => {
- try {
-    const data = req.body; // menuitem data
-  const newMenuitem = new menuitem(data);
-    const response = await newMenuitem.save();
-    console.log('data saved');
-    res.status(200).json(response);
-  } catch (err) {
-console.log(err);
-    res.status(500).json({ error: 'internal server error' });
-  }
-});
 
 router.post('/',async(req,res)=>{
   try{
@@ -26,7 +10,7 @@ router.post('/',async(req,res)=>{
               console.log('data saved')
               res.status(200).json(response)
   }catch(err){
-    console.log('err')
+    console.log(err);
   res.status(500).json({ err: 'internal server error' });
   }
 })
